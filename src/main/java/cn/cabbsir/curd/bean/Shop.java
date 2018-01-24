@@ -13,6 +13,17 @@ public class Shop {
 
     private String sphonenumber;
 
+    public void Shop(){}
+
+    public Shop(Integer sid, String susername, String spassword, String slocation, Integer srank, String sphonenumber) {
+        this.sid = sid;
+        this.susername = susername;
+        this.spassword = spassword;
+        this.slocation = slocation;
+        this.srank = srank;
+        this.sphonenumber = sphonenumber;
+    }
+
     public Integer getSid() {
         return sid;
     }

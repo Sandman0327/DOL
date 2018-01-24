@@ -20,6 +20,10 @@ public interface ShopInventoryMapper {
 
     ShopInventory selectByPrimaryKey(Integer siid);
 
+    List<ShopInventory> selectByExampleWithShop(ShopInventoryExample example);
+
+    ShopInventory selectByPrimaryKeyWithShop(Integer siid);
+
     int updateByExampleSelective(@Param("record") ShopInventory record, @Param("example") ShopInventoryExample example);
 
     int updateByExample(@Param("record") ShopInventory record, @Param("example") ShopInventoryExample example);

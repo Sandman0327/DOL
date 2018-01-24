@@ -27,6 +27,18 @@ public class ShopInventory {
 
     private Integer siinventory3;
 
+
+    //查询店铺订单的同时查询出店铺
+    private Shop shop;
+
+    public Shop getShop() {
+        return shop;
+    }
+
+    public void setShop(Shop shop) {
+        this.shop = shop;
+    }
+
     public Integer getSiid() {
         return siid;
     }
