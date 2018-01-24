@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+
+    <context id="DB2Tables" targetRuntime="MyBatis3">
+
+        <commentGenerator>
+
+            <property name="suppressAllComments" value="true"/>
+
+        </commentGenerator>
+
+        <!-- 配置数据库 -->
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://localhost:3306/dol"
+                        userId="root" password="root">
+        </jdbcConnection>
+
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false" />
+        </javaTypeResolver>
+
+
+        <!-- 配置javabean的生成位置 -->
+        <javaModelGenerator targetPackage="cn.cabbsir.curd.bean"
+                            targetProject=".\src\main\java">
+            <property name="enableSubPackages" value="true" />
+            <property name="trimStrings" value="true" />
+        </javaModelGenerator>
+
+
+        <!-- 指定sql映射文件的生成位置，mapper文件的位置 -->
+        <sqlMapGenerator targetPackage="mapper"
+                         targetProject=".\src\main\resources">
+            <property name="enableSubPackages" value="true" />
+        </sqlMapGenerator>
+
+
+        <!-- 指定dao的生成位置 -->
+        <javaClientGenerator type="XMLMAPPER"
+                             targetPackage="cn.cabbsir.curd.dao" targetProject=".\src\main\java">
+            <property name="enableSubPackages" value="true" />
+        </javaClientGenerator>
+
+
+        <!-- 每张表的生成策略 -->
+        <table tableName="tb_back" domainObjectName="Back"/>
+        <table tableName="tb_company" domainObjectName="Company"/>
+        <table tableName="tb_company_inventory" domainObjectName="CompanyInventory"/>
+        <table tableName="tb_distribution" domainObjectName="Distribution"/>
+        <table tableName="tb_material" domainObjectName="Material"/>
+        <table tableName="tb_material_order" domainObjectName="MaterialOrder"/>
+        <table tableName="tb_production" domainObjectName="Production"/>
+        <table tableName="tb_sell" domainObjectName="Sell"/>
+        <table tableName="tb_shop" domainObjectName="Shop"/>
+        <table tableName="tb_shop_inventory" domainObjectName="ShopInventory"/>
+
+
+    </context>
+</generatorConfiguration>
