@@ -13,7 +13,7 @@ public class Shop {
 
     private String sphonenumber;
 
-    public void Shop(){}
+    public Shop(){}
 
     public Shop(Integer sid, String susername, String spassword, String slocation, Integer srank, String sphonenumber) {
         this.sid = sid;

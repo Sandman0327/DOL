@@ -54,11 +54,12 @@
           <version>3.0.1</version>
           <scope>provided</scope>
       </dependency>
+      <!-- https://mvnrepository.com/artifact/javax.servlet.jsp/jsp-api -->
       <dependency>
-          <groupId>junit</groupId>
-          <artifactId>junit</artifactId>
-          <version>4.12</version>
-          <scope>test</scope>
+          <groupId>javax.servlet.jsp</groupId>
+          <artifactId>jsp-api</artifactId>
+          <version>2.2</version>
+          <scope>provided</scope>
       </dependency>
       <dependency>
           <groupId>org.mybatis.generator</groupId>
