@@ -14,4 +14,17 @@ public class SIService {
 	public List<ShopInventory> getAll(){
 		return shopInventoryMapper.selectByExampleWithShop(null);
 	}
+
+	public void insertSI(ShopInventory shopInventory) {
+		shopInventoryMapper.insertSelective(shopInventory);
+	}
+
+	public ShopInventory getSI1(Integer sid) {
+		ShopInventory shopInventory = shopInventoryMapper.selectByPrimaryKeyWithShop(sid);
+		return shopInventory;
+	}
+
+	public void updateSI(ShopInventory shopInventory) {
+		shopInventoryMapper.updateByPrimaryKeySelective(shopInventory);
+	}
 }

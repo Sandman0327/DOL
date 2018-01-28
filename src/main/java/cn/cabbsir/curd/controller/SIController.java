@@ -7,10 +7,7 @@ import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -19,9 +16,34 @@ public class SIController {
 	@Autowired
 	SIService siService;
 
+
+	//更新数据
+	@RequestMapping(value = "shopinventories/{siid}",method = RequestMethod.PUT)
+	@ResponseBody
+	public Massage updateSI(ShopInventory shopInventory){
+		siService.updateSI(shopInventory);
+		return Massage.success();
+	}
+
+	//根据id进行si查询
+	@ResponseBody
+	@RequestMapping(value = "shopinventories/{id}",method = RequestMethod.GET)
+	public Massage getSI1(@PathVariable("id") Integer sid){
+		ShopInventory shopInventory = siService.getSI1(sid);
+		return Massage.success().add("si", shopInventory);
+	}
+
+
+
+	@RequestMapping(value = "/shops",method = RequestMethod.POST)
+	@ResponseBody
+	public Massage saveSI(ShopInventory shopInventory){
+		siService.insertSI(shopInventory);
+		return Massage.success();
+	}
 	//json方法,导入json依赖包
 
-	@RequestMapping("/shopinventories")
+	@RequestMapping(value = "/shopinventories")
 	@ResponseBody
 	public Massage getSI(@RequestParam(value="pn" , defaultValue = "1")Integer pn){
 		PageHelper.startPage(pn,5);
